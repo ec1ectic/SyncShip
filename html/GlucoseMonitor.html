@@ -25,27 +25,38 @@
     <script>
     	$(function() { 
 		    $('#submit').click(function(){               
-		 
-		 		var obj = new Object();
-		 		obj.firstName = $("#first_name").val();
-		 		obj.lastName = $("#last_name").val();
-;
-		        
-		        var jsonString= JSON.stringify(obj);
-		 
-		        alert('The Value in FirstName is '+ jsonString);
+		 		
+		 		var inObj = new Object();
+		 		inObj.Date = $("#glucose_monitor_date").val();
+		 		inObj.Time = $("#glucose_monitor_time").val();
+		 		inObj.Name = $("#first_name").val() + $("#last_name").val();
+		 		inObj.Random = $("#glucose_monitor_random").val();
+		 		inObj.Breakfast = $("#glucose_monitor_breakfast").val();
+		 		inObj.Lunch = $("#glucose_monitor_lunch").val();
+		 		inObj.Dinner = $("#glucose_monitor_dinner").val();
+		 		inObj.Bedtime = $("#glucose_monitor_bedtime").val();
+		 		inObj.Comments = $("#glucose_monitor_comments").val();
+		 		
+		 		var inJsonString = JSON.stringify(inObj);
+		 		
+		 		var outObj = new Object();
+		 		outObj.FirstName = $("#first_name").val();
+		 		outObj.LastName = $("#last_name").val();
+		 		outObj.BirthDate = $("#dob").val();
+		 		outObj.TemplateName = 'GlucoseMonitor';
+		 		outObj.JSonPayLoad = inJsonString;
 		        
 				$.ajax({
 				    url : getServerAddress(),
 				    type: "POST",
-				    data : jsonString,
+				    data : outObj,
 				    success: function(data, textStatus, jqXHR)
 				    {
 				        //data - response from server
 				    },
 				    error: function (jqXHR, textStatus, errorThrown)
 				    {
-				 		alert(jsonString);
+				 		alert(outJsonString);
 				    }
 				});
 		 
@@ -173,7 +184,6 @@
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
-	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 	<script>window.jQuery || document.write('<script src="js/vendor/jquery-1.10.2.min.js"><\/script>')</script>
 	<script src="js/vendor/bootstrap.js"></script>
 	<script src="js/plugins.js"></script>

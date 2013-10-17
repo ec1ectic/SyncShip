@@ -1,4 +1,4 @@
 function getServerAddress()
 {
-	return 'http://localhost:1234'
+	return 'http://13826d36.ngrok.com/api/Chart';
 }
