@@ -9,7 +9,7 @@ namespace SyncingShip2_0.Models
     {
         public string FirstName { get; set; }
         public string LastName { get; set; }
-        public DateTime BirthDate { get; set; }
+        public string BirthDate { get; set; }
         public string TemplateName { get; set; }
         public string JSonPayload { get; set; }
     }

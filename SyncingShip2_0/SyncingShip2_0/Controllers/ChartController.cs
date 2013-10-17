@@ -12,6 +12,7 @@ namespace SyncingShip2_0.Controllers
     {
         public ChartData PostChartData(ChartData chartData)
         {
+
             throw new NotImplementedException();
         }
     }
