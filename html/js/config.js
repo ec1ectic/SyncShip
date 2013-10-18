@@ -1,4 +1,4 @@
 function getServerAddress()
 {
-	return 'http://13826d36.ngrok.com/api/Chart';
+	return 'http://7ffc47c9.ngrok.com/api/';
 }

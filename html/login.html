@@ -14,6 +14,41 @@
 
     <!-- Custom styles for this template -->
     <link href="css/signin.css" rel="stylesheet">
+    <script src="js/config.js"></script>
+    <script src="js/jquery-1.10.2.js"></script>
+    <script>
+    	$(function() { 
+		    $('#submit').click(function(){               
+		 		var Obj = new Object();
+		 		Obj.Username = $("#username").val();
+		 		Obj.Password = $("#password").val();
+ 
+				$.ajax({
+				    url : getServerAddress() + "login/",
+				    type: "POST",
+				    datatype: "application/json",
+				    data : Obj
+				})
+				.done(function(data) {
+				    window.location.replace("index.html");
+				})
+				.fail(function(data) {
+					$( '#loginAlert' ).show("slow");
+				});
+		    });
+		    return false;
+		    
+       });
+       
+    	$(function() { 
+    		$( '#loginAlert' ).hide();
+		    $( "#loginAlert" ).click(function() {  $( "#loginAlert" ).hide( "slow");});
+		    return false;
+		    
+       });
+       
+		
+    </script>
 
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
@@ -25,17 +60,24 @@
   <body>
 
     <div class="container">
+		
 
-      <form class="form-signin" action="index.html">
-        <h2 class="form-signin-heading">Please sign in</h2>
-        <input type="text" class="form-control" placeholder="Email address" autofocus>
-        <input type="password" class="form-control" placeholder="Password">
-        <label class="checkbox">
-          <input type="checkbox" value="remember-me"> Remember me
-        </label>
-        <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
-      </form>
-
+		<div class="form-signin">
+	    	<div align="center" class="well">
+				<div align="center" class="media">
+				    <img class="media-object" src="img/sinking-ship.jpg">
+				</div>
+		        <input type="text" id="username"class="form-control" placeholder="Username" autofocus>
+		        <input type="password" id="password" class="form-control" placeholder="Password">
+		        <div id="loginAlert" align="center" class="alert alert-danger">Login Failed!</div>
+		        <div align="left"> 
+			        <label class="checkbox">
+			        	<input type="checkbox" value="remember-me"> Remember me
+			        </label>	
+		       	</div>
+		        <button id="submit" class="btn btn-lg btn-primary btn-block">Sign in</button>
+			</div>
+    	</div>
     </div> <!-- /container -->
 
 
