@@ -23,20 +23,14 @@ namespace SyncingShip2_0.Controllers
 
         public ChartData PostChartData(ChartData chartData)
         {
-            chartData.JSonPayload = "";
+            // Only place we need mapping, so setup the map
+            AutoMapper.Mapper.CreateMap<ChartData,SyncingShip.TemplateEnvelope>();
+            //AutoMapper.Mapper.CreateMap<SyncingShip.TemplateEnvelope, ChartData>();
+            
+            SyncingShip.Manager.ProcessTemplate(AutoMapper.Mapper.Map<SyncingShip.TemplateEnvelope>(chartData) );
+
             return chartData;
         }
 
-        //public HttpResponseMessage PostChartData(ChartData chartData)
-        //{
-        //    chartData.JSonPayload = "";
-        //    var response = Request.CreateResponse<ChartData>(HttpStatusCode.Created, chartData);
-
-            
-        //    response.Headers.Location = new Uri("www.trimeloni.com");
-
-
-        //    return response;
-        //}
     }
 }
