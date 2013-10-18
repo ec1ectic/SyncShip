@@ -22,9 +22,11 @@ namespace SyncingShip
                 default :
                     throw new Exception(string.Format("Invalid template type: {0}", templateEnvelope.TemplateName));
             }
-            GetPatientId getPatientId = new GetPatientId();
+            
+            //GetPatientId getPatientId = new GetPatientId();
             //We need to grab the enterprise and practice ids
             //template.SaveToDatabase(new Guid(getPatientId.GetPatient(templateEnvelope.FirstName, templateEnvelope.LastName, templateEnvelope.DateOfBirth)));
+            template.SaveToDatabase(new Guid("TODO"), "0001", "00001");
             CreateTask createTask = new CreateTask();
             createTask.Create();
         }

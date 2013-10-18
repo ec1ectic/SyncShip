@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text;
 using NextGen.Core;
 using NextGen.Data;
+using PetaPoco;
 
 namespace SyncingShip
 {
@@ -19,6 +20,12 @@ namespace SyncingShip
                                                      'N', ['1DE71BF7-669C-4839-9FB8-5681D5EBA81A'], 
                                                      ['-99'], [GETDATE()], ['-99'], [GETDATE()]", _guid);
             //TASK ACTION ID OMITTED, MAY BE 
+            string connString = "Data Source=127.0.0.1;Initial Catalog=NG56GR_81;Integrated Security=false;User ID=sa;Password=nextgen;MultipleActiveResultSets=true";
+            var db = new Database(connString, "System.Data.SqlClient");
+
+            db.Execute(_storeProcedure);
+
+            /*
             DatabaseClient dbClient = new DatabaseClient(InstanceMgr.ProcessInstance);
             using (SqlConnection SQLConn = new SqlConnection(dbClient.ConnectionString))
             {
@@ -35,6 +42,7 @@ namespace SyncingShip
                     //shhhhh no more words just emotions
                 }
             }
+             */ 
         }
     }
 }
