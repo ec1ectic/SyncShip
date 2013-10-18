@@ -45,22 +45,29 @@
 		 		outObj.BirthDate = $("#dob").val();
 		 		outObj.TemplateName = 'GlucoseMonitor';
 		 		outObj.JSonPayLoad = inJsonString;
+		 		
 		        
 				$.ajax({
-				    url : getServerAddress(),
+				    url : getServerAddress() + "Chart/",
 				    type: "POST",
-				    data : outObj,
-				    success: function(data, textStatus, jqXHR)
-				    {
-				        //data - response from server
-				    },
-				    error: function (jqXHR, textStatus, errorThrown)
-				    {
-				 		alert(outJsonString);
-				    }
+				    datatype: "application/json",
+				    data : outObj
+				})
+				.done(function(data) {
+				    $( '#successAlert' ).show();
+				})
+				.fail(function(data) {
+					$( '#failAlert' ).show();
 				});
-		 
 		    });
+		    return false;
+       });
+       
+    	$(function() { 
+    		$( '#successAlert' ).hide();
+		    $( "#successAlert" ).click(function() {  $( "#successAlert" ).hide( "slow");});
+    		$( '#failAlert' ).hide();
+		    $( "#failAlert" ).click(function() {  $( "#failAlert" ).hide( "slow");});
        });
     </script>
   </head>
@@ -98,7 +105,7 @@
 
       <!-- Begin page content -->
 		<div class="container">
-		    <h1><del>iAdmit</del></h1>
+		    <h1><del>Not iAdmit</del></h1>
 		        <div>
 		            <div class="panel panel-default">
 		                <div class="panel-heading">
@@ -137,7 +144,7 @@
 		                <div class="panel-body">
 		                    <div class="form-group required">
 		                        <label for="glucose_monitor_date">Date</label>
-		                        <input type="test" class="form-control" id="glucose_monitor_date" placeholder="Enter Date">
+		                        <input type="test" class="form-control" id="glucose_monitor_date" placeholder="mm/dd/yyyy">
 		                    </div>
 		                    <div class="form-group">
 		                        <label for="glucose_monitor_time">Time</label>
@@ -169,6 +176,8 @@
 		                    </div>
 		                </div>
 		            </div>
+		            <div id="successAlert" align="center" class="alert alert-success">Your data has been submitted!</div>
+		            <div id="failAlert" align="center" class="alert alert-danger">Data submission failed!</div>
 		            <div><button id="submit" class="btn btn-primary">Submit</button></div>
 		        </div>
 		</div>

@@ -16,6 +16,16 @@
     <link href="css/jumbotron.css" rel="stylesheet">
     <link href="css/sticky-footer-navbar.css" rel="stylesheet">
     <link href="css/carousel.css" rel="stylesheet">
+    <script src="js/config.js"></script>
+    <script src="js/jquery-1.10.2.js"></script>
+    <script>
+    	$(function() { 
+    		$( '#successAlert' ).hide();
+		    $( "#successAlert" ).click(function() {  $( "#successAlert" ).hide( "slow");});
+		    return false;
+		    
+       });
+    </script>
 
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
@@ -71,7 +81,7 @@
             <div class="carousel-caption">
               <h1>Welcome to the NextGen Patient Portal</h1>
               <p>The one stop for patient information</p>
-              <p><a class="btn btn-large btn-primary" href="#">Sign up today</a></p>
+              <p><a class="btn btn-large btn-primary" href="login.html">Sign up today</a></p>
             </div>
           </div>
         </div>

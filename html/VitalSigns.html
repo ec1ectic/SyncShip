@@ -20,7 +20,60 @@
       <script src="../../assets/js/html5shiv.js"></script>
       <script src="../../assets/js/respond.min.js"></script>
     <![endif]-->
-  </head>
+    <script src="js/config.js"></script>
+    <script src="js/jquery-1.10.2.js"></script>
+    <script>
+    	$(function() { 
+		    $('#submit').click(function(){               
+		 		
+		 		var inObj = new Object();
+		 		inObj.Date = $("#vital_signs_date").val();
+		 		inObj.Time = $("#vital_signs_time").val();
+		 		inObj.Name = $("#first_name").val() + $("#last_name").val();
+		 		inObj.Temp = $("#vital_signs_deg").val();
+		 		inObj.Sys = $("#vital_signs_systolic").val();
+		 		inObj.Dias = $("#vital_signs_diastolic").val();
+		 		inObj.Pulse = $("#vital_signs_pulse").val();
+		 		inObj.Resp = $("#vital_signs_resp").val();
+		 		inObj.Wt = $("#vital_signs_wt").val();
+		 		inObj.PulseOx = $("#vital_signs_pulseox").val();
+		 		inObj.PeakFlow = $("#vital_signs_peakflow").val();
+		 		inObj.Comments = $("#vital_signs_comments").val();
+		 		
+		 		var inJsonString= JSON.stringify(inObj);
+		 		
+		 		var outObj = new Object();
+		 		outObj.FirstName = $("#first_name").val();
+		 		outObj.LastName = $("#last_name").val();
+		 		outObj.BirthDate = $("#dob").val();
+		 		outObj.TemplateName = 'GlucoseMonitor';
+		 		outObj.JsonPayload = inJsonString;
+		       
+ 
+				$.ajax({
+				    url : getServerAddress() + "Chart/",
+				    type: "POST",
+				    datatype: "application/json",
+				    data : outObj
+				})
+				.done(function(data) {
+				    $( '#successAlert' ).show();
+				})
+				.fail(function(data) {
+					$( '#failAlert' ).show();
+				});
+		    });
+		    return false;
+       });
+       
+    	$(function() { 
+    		$( '#successAlert' ).hide();
+		    $( "#successAlert" ).click(function() {  $( "#successAlert" ).hide( "slow");});
+    		$( '#failAlert' ).hide();
+		    $( "#failAlert" ).click(function() {  $( "#failAlert" ).hide( "slow");})		    
+       });
+    </script>
+   </head>
 
   <body>
     <!-- Wrap all page content here -->
@@ -55,8 +108,7 @@
 
       <!-- Begin page content -->
 		<div class="container">
-		    <h1><del>iAdmit</del></h1>
-		    <form role="form" class="">
+		    <h1><del>Not iAdmit</del></h1>
 		        <div>
 		            <div class="panel panel-default">
 		                <div class="panel-heading">
@@ -139,9 +191,10 @@
 		                    </div>
 		                </div>
 		            </div>
-		            <div><button type="submit" class="btn btn-primary">Submit</button></div>
+		            <div id="successAlert" align="center" class="alert alert-success">Your data has been submitted!</div>
+		            <div id="failAlert" align="center" class="alert alert-danger">Data submission failed!</div>
+		            <div><button id="submit" class="btn btn-primary">Submit</button></div>
 		        </div>
-		    </form>
 		</div>
     </div>
 
