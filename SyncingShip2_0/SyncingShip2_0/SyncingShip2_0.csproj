@@ -162,6 +162,7 @@
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
     <Compile Include="Controllers\ChartController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\Template1Controller.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="Global.asax.cs">
@@ -170,7 +171,10 @@
     <Compile Include="Models\ChartData.cs" />
     <Compile Include="Models\ChartDataRepository.cs" />
     <Compile Include="Models\IChartData.cs" />
+    <Compile Include="Models\ILogin.cs" />
     <Compile Include="Models\ITemplate1Repository.cs" />
+    <Compile Include="Models\LoginCredential.cs" />
+    <Compile Include="Models\LoginRepository.cs" />
     <Compile Include="Models\Template1.cs" />
     <Compile Include="Models\Template1Repository.cs" />
     <Compile Include="Models\TemplateBase.cs" />
