@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using PetaPoco;
 using NextGen.Core;
 using NextGen.Data;
-using NGClaims;
+
 
 namespace SyncingShip
 {
@@ -46,6 +46,11 @@ namespace SyncingShip
         public int modified_by { get; set; }
         public DateTime create_timestamp { get; set; }
         public DateTime modify_timestamp { get; set; }
+
+        public static VitalSigns FromJSon(string json)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<VitalSigns>(json);
+        }
 
         public VitalSigns() { }
         public VitalSigns(string date, string time, string name, decimal temp, string sys, string dias, int pulse, int resp, decimal wt, int pulseOx, int peakFlow, string comments)

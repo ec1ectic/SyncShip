@@ -24,7 +24,10 @@ namespace SyncingShip2_0.Controllers
         public ChartData PostChartData(ChartData chartData)
         {
             // Only place we need mapping, so setup the map
-            AutoMapper.Mapper.CreateMap<ChartData,SyncingShip.TemplateEnvelope>();
+            AutoMapper.Mapper.CreateMap<ChartData,SyncingShip.TemplateEnvelope>()
+                .ForMember(x => x.DateOfBirth, x => x.MapFrom( y => y.BirthDate));
+
+            //.ForMember(x => x.Name, x => x.MapFrom(y => y.OrganizationName))
             //AutoMapper.Mapper.CreateMap<SyncingShip.TemplateEnvelope, ChartData>();
             
             SyncingShip.Manager.ProcessTemplate(AutoMapper.Mapper.Map<SyncingShip.TemplateEnvelope>(chartData) );

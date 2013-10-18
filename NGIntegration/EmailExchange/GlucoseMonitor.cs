@@ -41,6 +41,12 @@ namespace SyncingShip
         public DateTime modify_timestamp { get; set; }
 
 
+        public static GlucoseMonitor FromJSon(string json)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<GlucoseMonitor>(json);
+        }
+
+
         public GlucoseMonitor() { }
         public GlucoseMonitor(string date, string time, string name, string random, string breakfast, string lunch, string dinner, string bedtime, string comments)
         {

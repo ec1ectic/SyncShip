@@ -31,17 +31,17 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\..\SyncingShip2_0\packages\Newtonsoft.Json.4.5.11\lib\net40\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="NextGen.Core">
-      <HintPath>..\..\..\..\projects\main-dev\Bin\NextGen.Core.dll</HintPath>
+      <HintPath>..\NextGen.Core.dll</HintPath>
     </Reference>
     <Reference Include="NextGen.Data">
-      <HintPath>..\..\..\..\projects\main-dev\Bin\NextGen.Data.dll</HintPath>
+      <HintPath>..\NextGen.Data.dll</HintPath>
     </Reference>
     <Reference Include="NextGen.Shared.Crypto">
-      <HintPath>..\..\..\..\ngdev\NextGen.Shared.Crypto.dll</HintPath>
-    </Reference>
-    <Reference Include="SQLConnect">
-      <HintPath>bin\SQLConnect.dll</HintPath>
+      <HintPath>..\NextGen.Shared.Crypto.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Configuration" />

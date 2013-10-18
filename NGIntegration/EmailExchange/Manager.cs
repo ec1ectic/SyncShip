@@ -14,10 +14,10 @@ namespace SyncingShip
             switch (templateEnvelope.TemplateName.ToUpper())
             {
                 case "GLUCOSEMONITOR" : 
-                    template = new GlucoseMonitor();
+                    template = GlucoseMonitor.FromJSon(templateEnvelope.JsonPayload);
                     break;
                 case "VITALSIGNS" :
-                    template = new VitalSigns();
+                    template = VitalSigns.FromJSon(templateEnvelope.JsonPayload);
                     break;
                 default :
                     throw new Exception(string.Format("Invalid template type: {0}", templateEnvelope.TemplateName));

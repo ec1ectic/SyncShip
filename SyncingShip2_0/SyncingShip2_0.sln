@@ -5,6 +5,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SyncingShip2_0", "SyncingSh
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SyncingShip2_0.Tests", "SyncingShip2_0.Tests\SyncingShip2_0.Tests.csproj", "{DF5B9B93-3CE3-4BD4-81F6-7FC978C38ED6}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SyncingShip2.0", "..\NGIntegration\EmailExchange\SyncingShip2.0.csproj", "{7B28A6D6-C7FF-4277-AFD5-DC16BFE7BDC2}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -19,6 +21,10 @@ Global
 		{DF5B9B93-3CE3-4BD4-81F6-7FC978C38ED6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DF5B9B93-3CE3-4BD4-81F6-7FC978C38ED6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DF5B9B93-3CE3-4BD4-81F6-7FC978C38ED6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7B28A6D6-C7FF-4277-AFD5-DC16BFE7BDC2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7B28A6D6-C7FF-4277-AFD5-DC16BFE7BDC2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7B28A6D6-C7FF-4277-AFD5-DC16BFE7BDC2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7B28A6D6-C7FF-4277-AFD5-DC16BFE7BDC2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
