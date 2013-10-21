@@ -13,19 +13,18 @@ namespace SyncingShip
     {
         public string GetPatient(string FirstName, string LastName, string DateOfBirth)
         {
-            string SQL = string.Format(@"SELECT person_id FROM person WHERE first_name like '%{0}%'
+            var sql = string.Format(@"SELECT person_id FROM person WHERE first_name like '%{0}%'
                                         AND last_name LIKE '%{1}%' AND date_of_birth = {2}", FirstName, LastName, DateOfBirth);
-            DatabaseClient DBClient = new DatabaseClient(InstanceMgr.ProcessInstance);
+            var dbClient = new DatabaseClient(InstanceMgr.ProcessInstance);
 
-            using (SqlConnection SQLConn = new SqlConnection(DBClient.ConnectionString))
+            using (var sqlConn = new SqlConnection(dbClient.ConnectionString))
             {
-                SqlCommand SQLCmd = new SqlCommand(SQL, SQLConn);
-                SQLCmd.CommandType = CommandType.Text;
+                var sqlCmd = new SqlCommand(sql, sqlConn) {CommandType = CommandType.Text};
 
                 try
                 {
-                    SQLConn.Open();
-                    return SQLCmd.ExecuteScalar().ToString();
+                    sqlConn.Open();
+                    return sqlCmd.ExecuteScalar().ToString();
                 }
                 catch
                 {

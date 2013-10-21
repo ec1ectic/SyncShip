@@ -14,9 +14,6 @@ namespace SyncingShip2_0.Models
                 throw new ArgumentNullException("item");
             }
 
-            // TODO: Integrate this with Jordan
-
-
             return item;
         }
 

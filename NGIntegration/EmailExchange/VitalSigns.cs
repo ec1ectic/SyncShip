@@ -14,10 +14,14 @@ namespace SyncingShip
     [PrimaryKey("seq_no", autoIncrement = false)]
     public class VitalSigns : ITemplate
     {
-        public string enterprise_id { get; set; }
-        public string practice_id { get; set; }
-        public Guid person_id { get; set; }
-        public Guid seq_no { get; set; }
+        [Column("enterprise_id")]
+        public string EnterpriseId { get; set; }
+        [Column("practice_id")]
+        public string PracticeId { get; set; }
+        [Column("person_id")]
+        public Guid PersonId { get; set; }
+        [Column("seq_nbr")]
+        public Guid SeqNo { get; set; }
         [Column("vitalSignsDate")]
         public string Date { get; set; }
         [Column("vitalSignsTime")]
@@ -71,14 +75,14 @@ namespace SyncingShip
 
         public void SaveToDatabase(Guid patientId, string enterpriseId, string practiceId)
         {
-            person_id = patientId;
-            enterprise_id = enterpriseId;
-            practice_id = practiceId;
+            PersonId = patientId;
+            EnterpriseId = enterpriseId;
+            PracticeId = practiceId;
             create_timestamp = DateTime.Now;
             modify_timestamp = DateTime.Now;
             created_by = -99;
             modified_by = -99;
-            seq_no = Guid.NewGuid();
+            SeqNo = Guid.NewGuid();
 
             EmailExchange.SQLConnectClass sqlConnect = new EmailExchange.SQLConnectClass();
             sqlConnect.DetermineRoute();

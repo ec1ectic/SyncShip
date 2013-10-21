@@ -46,7 +46,7 @@
 		 		outObj.FirstName = $("#first_name").val();
 		 		outObj.LastName = $("#last_name").val();
 		 		outObj.BirthDate = $("#dob").val();
-		 		outObj.TemplateName = 'GlucoseMonitor';
+		 		outObj.TemplateName = 'VitalSigns';
 		 		outObj.JsonPayload = inJsonString;
 		       
  
@@ -58,9 +58,11 @@
 				})
 				.done(function(data) {
 				    $( '#successAlert' ).show();
+					$( '#failAlert' ).hide();
 				})
 				.fail(function(data) {
 					$( '#failAlert' ).show();
+					$( '#successAlert' ).hide();
 				});
 		    });
 		    return false;

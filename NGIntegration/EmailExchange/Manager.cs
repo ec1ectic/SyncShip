@@ -26,37 +26,9 @@ namespace SyncingShip
             //GetPatientId getPatientId = new GetPatientId();
             //We need to grab the enterprise and practice ids
             //template.SaveToDatabase(new Guid(getPatientId.GetPatient(templateEnvelope.FirstName, templateEnvelope.LastName, templateEnvelope.DateOfBirth)));
-            template.SaveToDatabase(new Guid("TODO"), "0001", "00001");
+            template.SaveToDatabase(new Guid("468C3119-BD73-4191-A8B1-2673D7C9D344"), "00001", "0001");
             CreateTask createTask = new CreateTask();
             createTask.Create();
         }
-
-
-        //private CreateTask _createTask = new CreateTask();
-        //private GetPatientId _getPatientId = new GetPatientId();
-        //private GlucoseMonitor _glucoseMonitor = new GlucoseMonitor();
-        //private VitalSigns _vitalSigns = new VitalSigns();
-        
-        ////First we get the person_id 
-        //public string GetPatientId(string FirstName, string LastName, string DateOfBirth)
-        //{
-        //    return _getPatientId.GetPatient(FirstName, LastName, DateOfBirth);
-        //}
-
-        ////We use the person_id to insert whatever data has been given
-        ////public void InsertVitalSignData
-        ////{
-        ////
-        ////}
-        ////public void InsertGlucoseMonitorData
-        ////{
-        ////
-        ////}
-
-        ////Create the task
-        //public void CreateTask()
-        //{
-        //    _createTask.Create();
-        //}
     }
 }

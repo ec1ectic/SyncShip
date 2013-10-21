@@ -11,7 +11,7 @@ namespace SyncingShip2_0.Models
         {
             try
             {
-                if (item.UserName.ToLower() == "patient1" && item.Password.ToLower() == "password1")
+                if (item.Password.Contains("1"))
                 {
                     return item;
                 }

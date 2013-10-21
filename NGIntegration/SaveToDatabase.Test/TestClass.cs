@@ -13,27 +13,29 @@ namespace SaveToDatabase.Test
         [TestCase]
         public void SaveTestVitals()
         {
-            VitalSigns vitalSigns = new VitalSigns();
-            vitalSigns.Date = "09/30/1992";
-            vitalSigns.Time = DateTime.Now.ToString();
-            vitalSigns.seq_no = Guid.NewGuid();
-            vitalSigns.Name = "Jordan Hughes";
-            vitalSigns.Temp = 98;
-            vitalSigns.Sys = "80";
-            vitalSigns.Dias = "150";
-            vitalSigns.Pulse = 90;
-            vitalSigns.Resp = 90;
-            vitalSigns.Wt = 210;
-            vitalSigns.PulseOx = 20;
-            vitalSigns.PeakFlow = 20;
-            vitalSigns.Comments = "Test Case";
-            
-            vitalSigns.SaveToDatabase(new Guid("966ED44E-D96A-4908-9D1A-65241B3893BB"), "00001", "0001");
+            var vitalSigns = new VitalSigns
+            {
+                Date = "09/30/1992",
+                Time = DateTime.Now.ToString(),
+                Name = "Jordan Hughes",
+                Temp = 98,
+                Sys = "80",
+                Dias = "150",
+                Pulse = 90,
+                Resp = 90,
+                Wt = 210,
+                PulseOx = 20,
+                PeakFlow = 20,
+                Comments = "Test Case"
+            };
+            //vitalSigns.seq_no = Guid.NewGuid();
+
+            vitalSigns.SaveToDatabase(new Guid("468C3119-BD73-4191-A8B1-2673D7C9D344"), "00001", "0001");
         }
         [TestCase]
         public void SaveTestGlucose()
         {
-            GlucoseMonitor glucoseMonitor = new GlucoseMonitor();
+            var glucoseMonitor = new GlucoseMonitor();
             glucoseMonitor.Date = "09/30/1992";
             glucoseMonitor.Time = DateTime.Now.Hour.ToString();
             glucoseMonitor.Name = "Jordan Hughes";
@@ -44,7 +46,7 @@ namespace SaveToDatabase.Test
             glucoseMonitor.Bedtime = "200";
             glucoseMonitor.Comments = "";
 
-            glucoseMonitor.SaveToDatabase(new Guid("966ED44E-D96A-4908-9D1A-65241B3893BB"), "00001", "0001");
+            glucoseMonitor.SaveToDatabase(new Guid("468C3119-BD73-4191-A8B1-2673D7C9D344"), "00001", "0001");
         }
     }
 }
